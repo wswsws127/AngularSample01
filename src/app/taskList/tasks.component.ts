@@ -32,6 +32,7 @@ import { TasksService } from './tasks.service';
 export class TasksComponent implements OnInit {
   taskDescription="";
   aa:boolean=false;
+  showSpinner=false;
   // dtOptions: DataTables.Settings = {};
 
   setIndex(ii){
@@ -128,13 +129,14 @@ export class TasksComponent implements OnInit {
       this.retrieveTasks();
   }
 
-
-
-
   retrieveTasks(): void {
+    this.showSpinner=true;
     this._tasksService.getAllTasks()
       .subscribe(
-        tasksData => {this.tasksList = tasksData;},
+        tasksData => {
+          this.tasksList = tasksData;
+          this.showSpinner=false;
+        },
           error=>{console.log(error);}
           );
   }

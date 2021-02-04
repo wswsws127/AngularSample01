@@ -7,11 +7,10 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tasks', pathMatch: 'full' },
   { path: 'tasks', component: TasksComponent },
   { path: 'add', component: AddTaskComponent },
   { path: 'tasks/:id', component: TaskDetailsComponent },
-
+  { path: '', redirectTo: 'tasks', pathMatch: 'full' },
 ];
 
 @NgModule({

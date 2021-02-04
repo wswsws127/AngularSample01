@@ -1,3 +1,22 @@
+.searchForm{
+    float:right;
+}
+#table-container{
+    margin-right:1rem;
+}
+
+#center_wrapper{
+    text-align: center;
+    margin-top:5rem;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+  }
+
 #search_filter{
     float: right;
     text-align: right;
@@ -33,7 +52,8 @@
 
 #addTask{
     height: 40px;
-    margin-right: 20px;
+    margin-left: 1rem;
+    margin-right: 2rem;
     text-align: center;
 }
 

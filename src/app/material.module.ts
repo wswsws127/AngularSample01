@@ -9,30 +9,30 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-mat
 import {MatSortModule} from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+
+const materials=[
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatNativeDateModule,
+  MatInputModule,
+  BrowserAnimationsModule,
+  NgxMaterialTimepickerModule,
+  NgxMatDatetimePickerModule,
+  NgxMatTimepickerModule,
+  NgxMatTimepickerModule,
+  MatSortModule,
+  MatIconModule, 
+  MatButtonModule,
+  MatProgressSpinnerModule,
+]
 
 @NgModule({
   imports: [
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    NgxMaterialTimepickerModule,
-    NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
-    NgxMatTimepickerModule,
-    MatSortModule,
-    MatIconModule, MatButtonModule,
+    materials
   ],
   exports: [
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    MatSortModule,
-    MatButtonModule,
-    MatButtonModule
+    materials
   ],
   providers: [ MatDatepickerModule ],
 })

@@ -1,11 +1,10 @@
 
-  <h1>Task List</h1>  
+  <h1>Order List</h1>  
 
 
 <div class="row">
   <button id="addTask"
-class="btn btn-outline-primary" (click)="openAddModal()"
->Add Task</button>
+class="btn btn-outline-primary" (click)="openAddModal()">Add Record</button>
 
   <!--【THE SEARCH BOX】-->
   <!-- <form [formGroup]="formGroup">
@@ -40,7 +39,7 @@ class="btn btn-outline-primary" (click)="openAddModal()"
 <form id="searchForm">
   <div class="form-group">
       <div class="input-group" id="filterAll">
-        <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+        <!-- <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div> -->
         <input type="text" class="form-control" name="searchString" placeholder="Search..." [(ngModel)]="searchString">
       </div>
   </div>
@@ -48,16 +47,24 @@ class="btn btn-outline-primary" (click)="openAddModal()"
 
 </div>
 
-<table class="table table-hover table-striped">
-    <thead>
+<div id="center_wrapper" *ngIf="showSpinner">
+  <div class="center">
+    <mat-spinner ></mat-spinner>
+    <p>Loading the data...</p>
+  </div>
+</div>
 
+<div id="table-container"  *ngIf="tasksList">
+  <table class="table table-hover table-striped" >
+    <thead>
+ 
         <tr>
-            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="QuoteType">Quote Type</th>
-            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="QuoteID">Quote#</th>
-            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="ContactID">Contact ID</th>
-            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="TaskDescription">Task Description</th>
+            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="QuoteType">User ID</th>
+            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="QuoteID">Order#</th>
+            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="ContactID">Product ID</th>
+            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="TaskDescription">Tracking#</th>
             <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="TaskDueDate" data-type="date">Due Date</th>
-            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="TaskType">Task Type</th>
+            <th class="" scope="col" [appSort]="tasksList" data-order="desc" data-name="TaskType">Note</th>
             <th class="">Actions</th>
         </tr>
     </thead>
@@ -115,9 +122,12 @@ class="btn btn-outline-primary" (click)="openAddModal()"
             {{  }}
         </td>
     </tr> -->
-    <tr *ngIf="!tasksList || !tasksList.length">
+
+    <!-- <tr *ngIf="!tasksList || !tasksList.length">
         <td colspan="4">No Tasks found</td>
-    </tr> 
+    </tr>  -->
+    
+   
      </tbody>
 <!-- 
      <tbody *ngIf="tasksList?.length == 0">
@@ -126,6 +136,8 @@ class="btn btn-outline-primary" (click)="openAddModal()"
       </tr>
      </tbody> -->
 </table>
+</div>
+
 <div class="d-flex justify-content-center" id="paginator" *ngIf="tasksList">
   Showing 1 to {{ rowsPerPage }} of {{ tasksList.length }} entries
   <pagination-controls 
